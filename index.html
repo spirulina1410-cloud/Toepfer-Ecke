@@ -4,16 +4,15 @@
 
 <head>
 
-```
 <meta charset="UTF-8">
 
 <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
 >
 
 <title>Ruth Töpfer-Ecke</title>
-
 
 <style>
 
@@ -29,6 +28,14 @@
     h1 {
         color: midnightblue;
         font-size: 50px;
+    }
+
+
+    h2 {
+        color: midnightblue;
+        font-size: 35px;
+        margin-top: 60px;
+        margin-bottom: 40px;
     }
 
 
@@ -126,7 +133,9 @@
     }
 
 
-    /* Durchschnitt ganz oben */
+    /* ==========================================
+       DURCHSCHNITT
+    ========================================== */
 
     .durchschnitt {
         font-weight: bold;
@@ -136,7 +145,9 @@
     }
 
 
-    /* Einzelne Bewertung */
+    /* ==========================================
+       EINZELNE BEWERTUNG
+    ========================================== */
 
     .einzelne-bewertung {
         margin: 10px 0;
@@ -155,13 +166,11 @@
     }
 
 </style>
-```
 
 </head>
 
 <body>
 
-```
 <!-- ==========================================
      TITEL
 ========================================== -->
@@ -170,218 +179,562 @@
     Ruth Töpfer-Ecke!
 </h1>
 
-
 <!-- ==========================================
      BESCHREIBUNG
 ========================================== -->
 
 <p>
 
-    Diese Seite ist mein Töpfer-Tagebuch, welches ich mit dir teilen möchte. 
-    An manchen Stellen sind daher möglicherweise auch Notizen für mich. 
-    Du tust mir einen großen Gefallen, wenn du hier deinen Namen eingibst 
-    und die Bilder mit Sternen bewertest. Keine Angst, ich bin nicht traurig 
-    über wenige Sterne! Das ist ja total Geschmackssache. Und es hilft mir, 
-    zu sehen, was besonders beliebt ist, oder eben nur mein Geschmack. 
-    Außerdem kann ich so lernen, was dir gefällt. Sicher würde ich dir 
-    nämlich auch irgendwann mal ein Stück weitergeben, und da würde ich 
-    sehr gerne deinen Geschmack treffen, damit du dich besonders darüber 
-    freuen kannst. Deshalb helfen mir auch niedrige Bewertungen total! 
-    Aber falls du nur schauen willst, ist das natürlich auch okay. 
-    Viel Spaß <333
+```
+Diese Seite ist mein Töpfer-Tagebuch, welches ich mit dir teilen möchte.
+An manchen Stellen sind daher möglicherweise auch Notizen für mich.
+Du tust mir einen großen Gefallen, wenn du hier deinen Namen eingibst
+und die Bilder mit Sternen bewertest. Keine Angst, ich bin nicht traurig
+über wenige Sterne! Das ist ja total Geschmackssache. Und es hilft mir,
+zu sehen, was besonders beliebt ist, oder eben nur mein Geschmack.
+Außerdem kann ich so lernen, was dir gefällt. Sicher würde ich dir
+nämlich auch irgendwann mal ein Stück weitergeben, und da würde ich
+sehr gerne deinen Geschmack treffen, damit du dich besonders darüber
+freuen kannst. Deshalb helfen mir auch niedrige Bewertungen total!
+Aber falls du nur schauen willst, ist das natürlich auch okay.
+Viel Spaß &lt;333
+```
 
 </p>
-
 
 <!-- ==========================================
      NAME EINGEBEN
 ========================================== -->
 
 <input
-    type="text"
-    id="name"
-    placeholder="Dein Name"
->
+type="text"
+id="name"
+placeholder="Dein Name"
 
+>
 
 <div class="bilder">
 
+```
+<!-- ==========================================
+     BRAND 2 – OBEN
+========================================== -->
 
-    <h2>
-        Bilder bewerten
-    </h2>
-
-
-    <!-- ==========================================
-         STÜCK 1
-    ========================================== -->
-
-    <div class="bild">
+<h2>
+    Brand 2
+</h2>
 
 
-        <img
-            src="bild1.jpg"
-            alt="1."
-        >
+<!-- ==========================================
+     STÜCK 10
+========================================== -->
 
+<div class="bild">
 
-        <p>
-            Wie gefällt dir dieses Stück?
-        </p>
+    <img
+        src="bild10.jpg"
+        alt="10."
+    >
 
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
 
-        <!-- Sterne -->
+    <div
+        class="sterne"
+        data-bild="Stück 10"
+    >
 
-        <div
-            class="sterne"
-            data-bild="Stück 1"
-        >
-
-            <span
-                class="stern"
-                data-wert="1"
-            >☆</span>
-
-            <span
-                class="stern"
-                data-wert="2"
-            >☆</span>
-
-            <span
-                class="stern"
-                data-wert="3"
-            >☆</span>
-
-            <span
-                class="stern"
-                data-wert="4"
-            >☆</span>
-
-            <span
-                class="stern"
-                data-wert="5"
-            >☆</span>
-
-        </div>
-
-
-        <!-- Bewertungen für Stück 1 -->
-
-        <div class="bild-bewertung">
-
-
-            <div
-                class="bewertungen-titel"
-                data-bild="Stück 1"
-            >
-
-                Bewertungen anzeigen ▼
-
-            </div>
-
-
-            <div
-                class="bewertungen-inhalt"
-                data-bild="Stück 1"
-            >
-
-                Noch keine Bewertungen.
-
-            </div>
-
-
-        </div>
-
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
 
     </div>
 
 
-    <!-- ==========================================
-         STÜCK 2
-    ========================================== -->
-
-    <div class="bild">
-
-
-        <img
-            src="bild2.jpg"
-            alt="2."
-        >
-
-
-        <p>
-            Wie gefällt dir dieses Stück?
-        </p>
-
-
-        <!-- Sterne -->
+    <div class="bild-bewertung">
 
         <div
-            class="sterne"
-            data-bild="Stück 2"
+            class="bewertungen-titel"
+            data-bild="Stück 10"
         >
-
-            <span
-                class="stern"
-                data-wert="1"
-            >☆</span>
-
-            <span
-                class="stern"
-                data-wert="2"
-            >☆</span>
-
-            <span
-                class="stern"
-                data-wert="3"
-            >☆</span>
-
-            <span
-                class="stern"
-                data-wert="4"
-            >☆</span>
-
-            <span
-                class="stern"
-                data-wert="5"
-            >☆</span>
-
+            Bewertungen anzeigen ▼
         </div>
 
-
-        <!-- Bewertungen für Stück 2 -->
-
-        <div class="bild-bewertung">
-
-
-            <div
-                class="bewertungen-titel"
-                data-bild="Stück 2"
-            >
-
-                Bewertungen anzeigen ▼
-
-            </div>
-
-
-            <div
-                class="bewertungen-inhalt"
-                data-bild="Stück 2"
-            >
-
-                Noch keine Bewertungen.
-
-            </div>
-
-
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 10"
+        >
+            Noch keine Bewertungen.
         </div>
-
 
     </div>
-
 
 </div>
 
+
+<!-- ==========================================
+     STÜCK 9
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild9.jpg"
+        alt="9."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 9"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 9"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 9"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STÜCK 8
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild8.jpg"
+        alt="8."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 8"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 8"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 8"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STÜCK 7
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild7.jpg"
+        alt="7."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 7"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 7"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 7"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STÜCK 6
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild6.jpg"
+        alt="6."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 6"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 6"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 6"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     BRAND 1 – MITTE
+========================================== -->
+
+<h2>
+    Brand 1
+</h2>
+
+
+<!-- ==========================================
+     STÜCK 5
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild5.jpg"
+        alt="5."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 5"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 5"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 5"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STÜCK 4
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild4.jpg"
+        alt="4."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 4"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 4"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 4"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STÜCK 3
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild3.jpg"
+        alt="3."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 3"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 3"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 3"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STÜCK 2
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild2.jpg"
+        alt="2."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 2"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 2"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 2"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================
+     STÜCK 1
+========================================== -->
+
+<div class="bild">
+
+    <img
+        src="bild1.jpg"
+        alt="1."
+    >
+
+    <p>
+        Wie gefällt dir dieses Stück?
+    </p>
+
+    <div
+        class="sterne"
+        data-bild="Stück 1"
+    >
+
+        <span class="stern" data-wert="1">☆</span>
+        <span class="stern" data-wert="2">☆</span>
+        <span class="stern" data-wert="3">☆</span>
+        <span class="stern" data-wert="4">☆</span>
+        <span class="stern" data-wert="5">☆</span>
+
+    </div>
+
+
+    <div class="bild-bewertung">
+
+        <div
+            class="bewertungen-titel"
+            data-bild="Stück 1"
+        >
+            Bewertungen anzeigen ▼
+        </div>
+
+        <div
+            class="bewertungen-inhalt"
+            data-bild="Stück 1"
+        >
+            Noch keine Bewertungen.
+        </div>
+
+    </div>
+
+</div>
+```
+
+</div>
 
 <!-- ==========================================
      STATUSMELDUNG
@@ -389,13 +742,11 @@
 
 <div id="status"></div>
 
-
 <!-- ==========================================
      SUPABASE BIBLIOTHEK
 ========================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 
 <script>
 
@@ -403,7 +754,6 @@
     // ==========================================
     // SUPABASE VERBINDUNG
     // ==========================================
-
 
     const SUPABASE_URL =
         "https://uftcbeivpjdyodufegmp.supabase.co";
@@ -420,32 +770,23 @@
         );
 
 
-
     // ==========================================
     // HTML-ELEMENTE
     // ==========================================
 
-
     const nameInput =
-        document.getElementById(
-            "name"
-        );
+        document.getElementById("name");
 
 
     const status =
-        document.getElementById(
-            "status"
-        );
-
+        document.getElementById("status");
 
 
     // ==========================================
     // BEWERTUNGEN AUS SUPABASE LADEN
     // ==========================================
 
-
     async function ladeBewertungen() {
-
 
         const {
             data,
@@ -461,10 +802,7 @@
             );
 
 
-        // Fehler beim Laden
-
         if (error) {
-
 
             console.error(
                 "Fehler beim Laden:",
@@ -491,20 +829,14 @@
         }
 
 
-        // Bewertungen anzeigen
-
-        zeigeBewertungen(
-            data
-        );
+        zeigeBewertungen(data);
 
     }
-
 
 
     // ==========================================
     // BEWERTUNG SPEICHERN
     // ==========================================
-
 
     async function speichereBewertung(
         name,
@@ -512,21 +844,8 @@
         sterne
     ) {
 
-
         status.textContent =
             "Bewertung wird gespeichert...";
-
-
-        /*
-         * upsert bedeutet:
-         *
-         * Gibt es bereits eine Bewertung
-         * für diesen Namen + dieses Stück,
-         * wird sie aktualisiert.
-         *
-         * Gibt es noch keine Bewertung,
-         * wird eine neue erstellt.
-         */
 
 
         const {
@@ -546,10 +865,7 @@
             );
 
 
-        // Fehler beim Speichern
-
         if (error) {
-
 
             console.error(
                 "Fehler beim Speichern:",
@@ -566,18 +882,12 @@
         }
 
 
-        // Erfolgsmeldung
-
         status.textContent =
             "Deine Bewertung wurde gespeichert!";
 
 
-        // Bewertungen neu laden
-
         await ladeBewertungen();
 
-
-        // Statusmeldung nach 3 Sekunden löschen
 
         setTimeout(
             function() {
@@ -592,25 +902,19 @@
     }
 
 
-
     // ==========================================
     // STERNE AKTIVIEREN
     // ==========================================
 
-
     document
-        .querySelectorAll(
-            ".sterne"
-        )
+        .querySelectorAll(".sterne")
         .forEach(
             function(sternGruppe) {
 
 
             const sterne =
                 sternGruppe
-                    .querySelectorAll(
-                        ".stern"
-                    );
+                    .querySelectorAll(".stern");
 
 
             sterne.forEach(
@@ -622,20 +926,13 @@
                     async function() {
 
 
-                    // Namen auslesen
-
                     const name =
                         nameInput
                             .value
                             .trim();
 
 
-                    // Prüfen, ob Name vorhanden
-
-                    if (
-                        name === ""
-                    ) {
-
+                    if (name === "") {
 
                         alert(
                             "Bitte gib zuerst deinen Namen ein."
@@ -650,8 +947,6 @@
                     }
 
 
-                    // Anzahl der Sterne
-
                     const wert =
                         Number(
                             stern
@@ -661,16 +956,12 @@
                         );
 
 
-                    // Welches Stück?
-
                     const bild =
                         sternGruppe
                             .getAttribute(
                                 "data-bild"
                             );
 
-
-                    // Sterne optisch anzeigen
 
                     sterne.forEach(
                         function(
@@ -679,10 +970,7 @@
                         ) {
 
 
-                        if (
-                            index < wert
-                        ) {
-
+                        if (index < wert) {
 
                             einzelnerStern
                                 .textContent =
@@ -691,13 +979,10 @@
 
                             einzelnerStern
                                 .classList
-                                .add(
-                                    "aktiv"
-                                );
+                                .add("aktiv");
 
 
                         } else {
-
 
                             einzelnerStern
                                 .textContent =
@@ -706,16 +991,12 @@
 
                             einzelnerStern
                                 .classList
-                                .remove(
-                                    "aktiv"
-                                );
+                                .remove("aktiv");
 
                         }
 
                     });
 
-
-                    // Bewertung speichern
 
                     await speichereBewertung(
                         name,
@@ -732,19 +1013,14 @@
     });
 
 
-
     // ==========================================
     // BEWERTUNGEN ANZEIGEN
     // ==========================================
-
 
     function zeigeBewertungen(
         bewertungen
     ) {
 
-
-        // Alle Bewertungsbereiche
-        // unter den Bildern durchgehen
 
         document
             .querySelectorAll(
@@ -754,18 +1030,12 @@
                 function(bereich) {
 
 
-                // Zu welchem Stück gehört
-                // dieser Bewertungsbereich?
-
                 const bild =
                     bereich
                         .getAttribute(
                             "data-bild"
                         );
 
-
-                // Nur Bewertungen für
-                // dieses Stück herausfiltern
 
                 const bildBewertungen =
                     bewertungen.filter(
@@ -781,14 +1051,11 @@
                     );
 
 
-                // Keine Bewertungen vorhanden
-
                 if (
                     bildBewertungen.length
                     ===
                     0
                 ) {
-
 
                     bereich.innerHTML =
                         "Noch keine Bewertungen.";
@@ -799,11 +1066,9 @@
                 }
 
 
-
                 // ==========================================
                 // DURCHSCHNITT BERECHNEN
                 // ==========================================
-
 
                 let summe = 0;
 
@@ -811,12 +1076,10 @@
                 bildBewertungen.forEach(
                     function(bewertung) {
 
-
                     summe +=
                         Number(
                             bewertung.sterne
                         );
-
 
                 });
 
@@ -826,20 +1089,11 @@
                     bildBewertungen.length;
 
 
-                // Auf eine Nachkommastelle runden
-
                 const gerundet =
                     durchschnitt
-                        .toFixed(
-                            1
-                        )
-                        .replace(
-                            ".",
-                            ","
-                        );
+                        .toFixed(1)
+                        .replace(".", ",");
 
-
-                // Durchschnitt als Sterne darstellen
 
                 const volleSterne =
                     Math.round(
@@ -857,21 +1111,17 @@
                     );
 
 
-
                 // ==========================================
                 // BEREICH LEEREN
                 // ==========================================
-
 
                 bereich.innerHTML =
                     "";
 
 
-
                 // ==========================================
-                // DURCHSCHNITT GANZ OBEN
+                // DURCHSCHNITT ANZEIGEN
                 // ==========================================
-
 
                 const durchschnittElement =
                     document.createElement(
@@ -897,11 +1147,9 @@
                 );
 
 
-
                 // ==========================================
                 // EINZELNE BEWERTUNGEN
                 // ==========================================
-
 
                 bildBewertungen.forEach(
                     function(bewertung) {
@@ -917,8 +1165,6 @@
                         "einzelne-bewertung";
 
 
-                    // Sterne des einzelnen Benutzers
-
                     const sterne =
                         "★".repeat(
                             Number(
@@ -932,8 +1178,6 @@
                             )
                         );
 
-
-                    // Name + Bewertung
 
                     eintrag.textContent =
                         bewertung.name +
@@ -952,11 +1196,9 @@
             });
 
 
-
         // ==========================================
         // AUFKLAPPBARE BEREICHE
         // ==========================================
-
 
         document
             .querySelectorAll(
@@ -965,9 +1207,6 @@
             .forEach(
                 function(titel) {
 
-
-                // Verhindert doppelte
-                // Event Listener
 
                 if (
                     titel.dataset.listener
@@ -984,8 +1223,6 @@
                     "true";
 
 
-                // Klick auf "Bewertungen anzeigen"
-
                 titel.addEventListener(
                     "click",
                     function() {
@@ -998,8 +1235,6 @@
                             );
 
 
-                    // Passenden Bereich finden
-
                     const bereich =
                         document.querySelector(
                             '.bewertungen-inhalt[data-bild="' +
@@ -1008,16 +1243,12 @@
                         );
 
 
-                    // Auf- oder zuklappen
-
                     bereich
                         .classList
                         .toggle(
                             "aktiv"
                         );
 
-
-                    // Text ändern
 
                     if (
                         bereich
@@ -1027,13 +1258,11 @@
                             )
                     ) {
 
-
                         titel.textContent =
                             "Bewertungen ausblenden ▲";
 
 
                     } else {
-
 
                         titel.textContent =
                             "Bewertungen anzeigen ▼";
@@ -1043,24 +1272,19 @@
 
                 });
 
-
             });
 
-
     }
-
 
 
     // ==========================================
     // BEIM START BEWERTUNGEN LADEN
     // ==========================================
 
-
     ladeBewertungen();
 
 
 </script>
-```
 
 </body>
 
