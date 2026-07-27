@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 
 <html lang="de">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 ```
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
 <title>Ruth Töpfer-Ecke</title>
 
+
 <style>
+
     body {
         background-color: powderblue;
         text-align: center;
-        font-family: Courier New, sans-serif;
+        font-family: "Courier New", sans-serif;
         margin: 0;
         padding: 20px;
     }
+
 
     h1 {
         color: midnightblue;
         font-size: 50px;
     }
 
+
     p {
         font-size: 20px;
         line-height: 1.5;
     }
+
 
     input {
         padding: 10px;
@@ -35,14 +46,17 @@
         border-radius: 5px;
     }
 
+
     .bilder {
         margin-top: 50px;
     }
+
 
     .bild {
         margin: 30px auto;
         max-width: 500px;
     }
+
 
     .bild img {
         width: 300px;
@@ -50,69 +64,96 @@
         border-radius: 10px;
     }
 
-    /* Sterne */
+
+    /* ==========================================
+       STERNE
+    ========================================== */
 
     .sterne {
         font-size: 35px;
         cursor: pointer;
     }
 
+
     .stern {
         color: gray;
         cursor: pointer;
     }
 
+
     .stern.aktiv {
         color: blue;
     }
 
-    /* Bewertungsbereich */
 
-    .bewertungen {
-        margin-top: 80px;
-        background-color: white;
-        padding: 30px;
-        border-radius: 10px;
-        max-width: 600px;
+    /* ==========================================
+       BEWERTUNGEN UNTER JEDEM BILD
+    ========================================== */
+
+    .bild-bewertung {
+        margin-top: 25px;
+        max-width: 400px;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .name {
-        margin: 10px auto;
-        max-width: 500px;
-        text-align: left;
-    }
 
-    .name-titel {
-        background-color: #eeeeee;
-        padding: 15px;
+    .bewertungen-titel {
+        background-color: white;
+        padding: 12px;
         cursor: pointer;
         font-weight: bold;
         border-radius: 5px;
     }
 
-    .name-titel:hover {
-        background-color: #dddddd;
+
+    .bewertungen-titel:hover {
+        background-color: #eeeeee;
     }
 
-    .name-inhalt {
+
+    .bewertungen-inhalt {
         display: none;
+        background-color: white;
         padding: 15px;
-        background-color: #f8f8f8;
+        text-align: left;
+        border-radius: 0 0 5px 5px;
     }
 
-    .name-inhalt.aktiv {
+
+    .bewertungen-inhalt.aktiv {
         display: block;
     }
 
-    /* Statusmeldungen */
+
+    /* Durchschnitt ganz oben */
+
+    .durchschnitt {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+
+    /* Einzelne Bewertung */
+
+    .einzelne-bewertung {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+
+
+    /* ==========================================
+       STATUSMELDUNG
+    ========================================== */
 
     #status {
         margin-top: 20px;
         font-size: 16px;
         min-height: 25px;
     }
+
 </style>
 ```
 
@@ -121,9 +162,21 @@
 <body>
 
 ```
-<h1>Ruth Töpfer-Ecke!</h1>
+<!-- ==========================================
+     TITEL
+========================================== -->
+
+<h1>
+    Ruth Töpfer-Ecke!
+</h1>
+
+
+<!-- ==========================================
+     BESCHREIBUNG
+========================================== -->
 
 <p>
+
     Diese Seite ist mein Töpfer-Tagebuch, welches ich mit dir teilen möchte. 
     An manchen Stellen sind daher möglicherweise auch Notizen für mich. 
     Du tust mir einen großen Gefallen, wenn du hier deinen Namen eingibst 
@@ -136,10 +189,13 @@
     freuen kannst. Deshalb helfen mir auch niedrige Bewertungen total! 
     Aber falls du nur schauen willst, ist das natürlich auch okay. 
     Viel Spaß <333
+
 </p>
 
 
-<!-- Name eingeben -->
+<!-- ==========================================
+     NAME EINGEBEN
+========================================== -->
 
 <input
     type="text"
@@ -150,21 +206,31 @@
 
 <div class="bilder">
 
-    <h2>Bilder bewerten</h2>
+
+    <h2>
+        Bilder bewerten
+    </h2>
 
 
-    <!-- Stück 1 -->
+    <!-- ==========================================
+         STÜCK 1
+    ========================================== -->
 
     <div class="bild">
+
 
         <img
             src="bild1.jpg"
             alt="1."
         >
 
+
         <p>
             Wie gefällt dir dieses Stück?
         </p>
+
+
+        <!-- Sterne -->
 
         <div
             class="sterne"
@@ -198,21 +264,57 @@
 
         </div>
 
+
+        <!-- Bewertungen für Stück 1 -->
+
+        <div class="bild-bewertung">
+
+
+            <div
+                class="bewertungen-titel"
+                data-bild="Stück 1"
+            >
+
+                Bewertungen anzeigen ▼
+
+            </div>
+
+
+            <div
+                class="bewertungen-inhalt"
+                data-bild="Stück 1"
+            >
+
+                Noch keine Bewertungen.
+
+            </div>
+
+
+        </div>
+
+
     </div>
 
 
-    <!-- Stück 2 -->
+    <!-- ==========================================
+         STÜCK 2
+    ========================================== -->
 
     <div class="bild">
+
 
         <img
             src="bild2.jpg"
             alt="2."
         >
 
+
         <p>
             Wie gefällt dir dieses Stück?
         </p>
+
+
+        <!-- Sterne -->
 
         <div
             class="sterne"
@@ -246,44 +348,66 @@
 
         </div>
 
+
+        <!-- Bewertungen für Stück 2 -->
+
+        <div class="bild-bewertung">
+
+
+            <div
+                class="bewertungen-titel"
+                data-bild="Stück 2"
+            >
+
+                Bewertungen anzeigen ▼
+
+            </div>
+
+
+            <div
+                class="bewertungen-inhalt"
+                data-bild="Stück 2"
+            >
+
+                Noch keine Bewertungen.
+
+            </div>
+
+
+        </div>
+
+
     </div>
+
 
 </div>
 
 
-<!-- Statusmeldung -->
+<!-- ==========================================
+     STATUSMELDUNG
+========================================== -->
 
 <div id="status"></div>
 
 
-<!-- Bewertungen -->
-
-<div class="bewertungen">
-
-    <h2>Bewertungen</h2>
-
-    <div id="bewertungsliste">
-
-        Bewertungen werden geladen...
-
-    </div>
-
-</div>
-
-
-<!-- Supabase Bibliothek -->
+<!-- ==========================================
+     SUPABASE BIBLIOTHEK
+========================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <script>
 
+
     // ==========================================
     // SUPABASE VERBINDUNG
     // ==========================================
 
+
     const SUPABASE_URL =
         "https://uftcbeivpjdyodufegmp.supabase.co";
+
 
     const SUPABASE_KEY =
         "sb_publishable_KhZbm7D4A4bQJxNU_4CTTg_6AwDly8-";
@@ -296,25 +420,32 @@
         );
 
 
+
     // ==========================================
-    // ELEMENTE AUS DER HTML-SEITE
+    // HTML-ELEMENTE
     // ==========================================
+
 
     const nameInput =
-        document.getElementById("name");
+        document.getElementById(
+            "name"
+        );
 
-    const bewertungsliste =
-        document.getElementById("bewertungsliste");
 
     const status =
-        document.getElementById("status");
+        document.getElementById(
+            "status"
+        );
+
 
 
     // ==========================================
     // BEWERTUNGEN AUS SUPABASE LADEN
     // ==========================================
 
+
     async function ladeBewertungen() {
+
 
         const {
             data,
@@ -322,40 +453,65 @@
         } = await supabaseClient
             .from("bewertungen")
             .select("*")
-            .order("name", {
-                ascending: true
-            });
+            .order(
+                "name",
+                {
+                    ascending: true
+                }
+            );
 
+
+        // Fehler beim Laden
 
         if (error) {
+
 
             console.error(
                 "Fehler beim Laden:",
                 error
             );
 
-            bewertungsliste.innerHTML =
-                "Die Bewertungen konnten leider nicht geladen werden.";
+
+            document
+                .querySelectorAll(
+                    ".bewertungen-inhalt"
+                )
+                .forEach(
+                    function(bereich) {
+
+                        bereich.innerHTML =
+                            "Die Bewertungen konnten leider nicht geladen werden.";
+
+                    }
+                );
+
 
             return;
 
         }
 
 
-        zeigeBewertungen(data);
+        // Bewertungen anzeigen
+
+        zeigeBewertungen(
+            data
+        );
 
     }
+
 
 
     // ==========================================
     // BEWERTUNG SPEICHERN
     // ==========================================
 
+
     async function speichereBewertung(
         name,
         bild,
         sterne
     ) {
+
 
         status.textContent =
             "Bewertung wird gespeichert...";
@@ -372,6 +528,7 @@
          * wird eine neue erstellt.
          */
 
+
         const {
             error
         } = await supabaseClient
@@ -383,25 +540,33 @@
                     sterne: sterne
                 },
                 {
-                    onConflict: "name,bild"
+                    onConflict:
+                        "name,bild"
                 }
             );
 
 
+        // Fehler beim Speichern
+
         if (error) {
+
 
             console.error(
                 "Fehler beim Speichern:",
                 error
             );
 
+
             status.textContent =
                 "Fehler: Die Bewertung konnte nicht gespeichert werden.";
+
 
             return;
 
         }
 
+
+        // Erfolgsmeldung
 
         status.textContent =
             "Deine Bewertung wurde gespeichert!";
@@ -412,12 +577,13 @@
         await ladeBewertungen();
 
 
-        // Statusmeldung nach kurzer Zeit ausblenden
+        // Statusmeldung nach 3 Sekunden löschen
 
         setTimeout(
             function() {
 
-                status.textContent = "";
+                status.textContent =
+                    "";
 
             },
             3000
@@ -426,19 +592,25 @@
     }
 
 
+
     // ==========================================
     // STERNE AKTIVIEREN
     // ==========================================
 
+
     document
-        .querySelectorAll(".sterne")
+        .querySelectorAll(
+            ".sterne"
+        )
         .forEach(
             function(sternGruppe) {
 
 
             const sterne =
                 sternGruppe
-                    .querySelectorAll(".stern");
+                    .querySelectorAll(
+                        ".stern"
+                    );
 
 
             sterne.forEach(
@@ -458,15 +630,20 @@
                             .trim();
 
 
-                    // Prüfen, ob Name eingegeben wurde
+                    // Prüfen, ob Name vorhanden
 
-                    if (name === "") {
+                    if (
+                        name === ""
+                    ) {
+
 
                         alert(
                             "Bitte gib zuerst deinen Namen ein."
                         );
 
+
                         nameInput.focus();
+
 
                         return;
 
@@ -506,9 +683,11 @@
                             index < wert
                         ) {
 
+
                             einzelnerStern
                                 .textContent =
                                 "★";
+
 
                             einzelnerStern
                                 .classList
@@ -516,11 +695,14 @@
                                     "aktiv"
                                 );
 
+
                         } else {
+
 
                             einzelnerStern
                                 .textContent =
                                 "☆";
+
 
                             einzelnerStern
                                 .classList
@@ -550,185 +732,329 @@
     });
 
 
+
     // ==========================================
     // BEWERTUNGEN ANZEIGEN
     // ==========================================
+
 
     function zeigeBewertungen(
         bewertungen
     ) {
 
 
-        // Alte Anzeige löschen
+        // Alle Bewertungsbereiche
+        // unter den Bildern durchgehen
 
-        bewertungsliste.innerHTML =
-            "";
-
-
-        // Keine Bewertungen vorhanden
-
-        if (
-            bewertungen.length === 0
-        ) {
-
-            bewertungsliste.innerHTML =
-                "Noch keine Bewertungen vorhanden.";
-
-            return;
-
-        }
-
-
-        // Namen sammeln
-
-        const namen = {};
-
-
-        bewertungen.forEach(
-            function(bewertung) {
-
-
-            if (
-                !namen[
-                    bewertung.name
-                ]
-            ) {
-
-                namen[
-                    bewertung.name
-                ] = [];
-
-            }
-
-
-            namen[
-                bewertung.name
-            ].push(
-                bewertung
-            );
-
-        });
-
-
-        // Für jeden Namen einen Bereich erstellen
-
-        Object.keys(namen)
+        document
+            .querySelectorAll(
+                ".bewertungen-inhalt"
+            )
             .forEach(
-                function(name) {
+                function(bereich) {
 
 
-            // Äußerer Bereich
+                // Zu welchem Stück gehört
+                // dieser Bewertungsbereich?
 
-            const nameBereich =
-                document.createElement(
-                    "div"
-                );
-
-            nameBereich.className =
-                "name";
-
-
-            // Name als Überschrift
-
-            const nameTitel =
-                document.createElement(
-                    "div"
-                );
-
-            nameTitel.className =
-                "name-titel";
-
-            nameTitel.textContent =
-                name + " ▼";
+                const bild =
+                    bereich
+                        .getAttribute(
+                            "data-bild"
+                        );
 
 
-            // Inhalt
+                // Nur Bewertungen für
+                // dieses Stück herausfiltern
 
-            const nameInhalt =
-                document.createElement(
-                    "div"
-                );
+                const bildBewertungen =
+                    bewertungen.filter(
+                        function(bewertung) {
 
-            nameInhalt.className =
-                "name-inhalt";
+                            return (
+                                bewertung.bild
+                                ===
+                                bild
+                            );
 
-
-            // Bewertungen dieses Namens
-
-            namen[name].forEach(
-                function(bewertung) {
-
-
-                const eintrag =
-                    document.createElement(
-                        "p"
+                        }
                     );
 
 
-                // Sterne darstellen
+                // Keine Bewertungen vorhanden
 
-                const sterne =
+                if (
+                    bildBewertungen.length
+                    ===
+                    0
+                ) {
+
+
+                    bereich.innerHTML =
+                        "Noch keine Bewertungen.";
+
+
+                    return;
+
+                }
+
+
+
+                // ==========================================
+                // DURCHSCHNITT BERECHNEN
+                // ==========================================
+
+
+                let summe = 0;
+
+
+                bildBewertungen.forEach(
+                    function(bewertung) {
+
+
+                    summe +=
+                        Number(
+                            bewertung.sterne
+                        );
+
+
+                });
+
+
+                const durchschnitt =
+                    summe /
+                    bildBewertungen.length;
+
+
+                // Auf eine Nachkommastelle runden
+
+                const gerundet =
+                    durchschnitt
+                        .toFixed(
+                            1
+                        )
+                        .replace(
+                            ".",
+                            ","
+                        );
+
+
+                // Durchschnitt als Sterne darstellen
+
+                const volleSterne =
+                    Math.round(
+                        durchschnitt
+                    );
+
+
+                const sterneAnzeige =
                     "★".repeat(
-                        bewertung.sterne
+                        volleSterne
                     ) +
                     "☆".repeat(
                         5 -
-                        bewertung.sterne
+                        volleSterne
                     );
 
 
-                eintrag.textContent =
-                    bewertung.bild +
-                    ": " +
-                    sterne;
+
+                // ==========================================
+                // BEREICH LEEREN
+                // ==========================================
 
 
-                nameInhalt.appendChild(
-                    eintrag
+                bereich.innerHTML =
+                    "";
+
+
+
+                // ==========================================
+                // DURCHSCHNITT GANZ OBEN
+                // ==========================================
+
+
+                const durchschnittElement =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                durchschnittElement
+                    .className =
+                    "durchschnitt";
+
+
+                durchschnittElement.textContent =
+                    "Durchschnitt: " +
+                    sterneAnzeige +
+                    " (" +
+                    gerundet +
+                    " / 5)";
+
+
+                bereich.appendChild(
+                    durchschnittElement
                 );
+
+
+
+                // ==========================================
+                // EINZELNE BEWERTUNGEN
+                // ==========================================
+
+
+                bildBewertungen.forEach(
+                    function(bewertung) {
+
+
+                    const eintrag =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    eintrag.className =
+                        "einzelne-bewertung";
+
+
+                    // Sterne des einzelnen Benutzers
+
+                    const sterne =
+                        "★".repeat(
+                            Number(
+                                bewertung.sterne
+                            )
+                        ) +
+                        "☆".repeat(
+                            5 -
+                            Number(
+                                bewertung.sterne
+                            )
+                        );
+
+
+                    // Name + Bewertung
+
+                    eintrag.textContent =
+                        bewertung.name +
+                        ": " +
+                        sterne;
+
+
+                    bereich.appendChild(
+                        eintrag
+                    );
+
+
+                });
+
 
             });
 
 
-            // Auf- und Zuklappen
 
-            nameTitel.addEventListener(
-                "click",
-                function() {
+        // ==========================================
+        // AUFKLAPPBARE BEREICHE
+        // ==========================================
 
-                    nameInhalt
+
+        document
+            .querySelectorAll(
+                ".bewertungen-titel"
+            )
+            .forEach(
+                function(titel) {
+
+
+                // Verhindert doppelte
+                // Event Listener
+
+                if (
+                    titel.dataset.listener
+                    ===
+                    "true"
+                ) {
+
+                    return;
+
+                }
+
+
+                titel.dataset.listener =
+                    "true";
+
+
+                // Klick auf "Bewertungen anzeigen"
+
+                titel.addEventListener(
+                    "click",
+                    function() {
+
+
+                    const bild =
+                        titel
+                            .getAttribute(
+                                "data-bild"
+                            );
+
+
+                    // Passenden Bereich finden
+
+                    const bereich =
+                        document.querySelector(
+                            '.bewertungen-inhalt[data-bild="' +
+                            bild +
+                            '"]'
+                        );
+
+
+                    // Auf- oder zuklappen
+
+                    bereich
                         .classList
                         .toggle(
                             "aktiv"
                         );
 
-                }
-            );
+
+                    // Text ändern
+
+                    if (
+                        bereich
+                            .classList
+                            .contains(
+                                "aktiv"
+                            )
+                    ) {
 
 
-            // Elemente zusammenfügen
-
-            nameBereich.appendChild(
-                nameTitel
-            );
-
-            nameBereich.appendChild(
-                nameInhalt
-            );
-
-            bewertungsliste.appendChild(
-                nameBereich
-            );
+                        titel.textContent =
+                            "Bewertungen ausblenden ▲";
 
 
-        });
+                    } else {
+
+
+                        titel.textContent =
+                            "Bewertungen anzeigen ▼";
+
+                    }
+
+
+                });
+
+
+            });
+
 
     }
+
 
 
     // ==========================================
     // BEIM START BEWERTUNGEN LADEN
     // ==========================================
+
 
     ladeBewertungen();
 
@@ -737,4 +1063,5 @@
 ```
 
 </body>
+
 </html>
