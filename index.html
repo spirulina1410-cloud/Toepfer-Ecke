@@ -1,87 +1,452 @@
 <!DOCTYPE html>
+
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Ruth Töpfer-Ecke</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            background-color: lightgreen;
-            text-align: center;
-            font-family: Arial, sans-serif;
-        }
+```
+<title>Ruth Töpfer-Ecke</title>
 
-        h1 {
-            color: black;
-            font-size: 50px;
-        }
+<style>
+    body {
+        background-color: lightgreen;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
 
-        p {
-            font-size: 20px;
-        }
+    h1 {
+        color: black;
+        font-size: 50px;
+    }
 
-        input {
-            padding: 10px;
-            font-size: 16px;
-            margin: 10px;
-        }
+    p {
+        font-size: 20px;
+    }
 
-        .bilder {
-            margin-top: 50px;
-        }
+    input {
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+    }
 
-        .bild {
-            margin: 30px;
-        }
+    .bilder {
+        margin-top: 50px;
+    }
 
-        .bild img {
-            width: 300px;
-            border-radius: 10px;
-        }
+    .bild {
+        margin: 30px;
+    }
 
-        .sterne {
-            font-size: 35px;
-            color: blue;
-            cursor: pointer;
-        }
-    </style>
+    .bild img {
+        width: 300px;
+        border-radius: 10px;
+    }
+
+    /* Sterne */
+
+    .sterne {
+        font-size: 35px;
+        color: blue;
+        cursor: pointer;
+    }
+
+    .stern {
+        color: gray;
+        cursor: pointer;
+    }
+
+    .stern.aktiv {
+        color: blue;
+    }
+
+    /* Bewertungsbereich */
+
+    .bewertungen {
+        margin-top: 80px;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .name {
+        margin: 10px auto;
+        max-width: 500px;
+        text-align: left;
+    }
+
+    .name-titel {
+        background-color: #eeeeee;
+        padding: 15px;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+
+    .name-inhalt {
+        display: none;
+        padding: 15px;
+        background-color: #f8f8f8;
+    }
+
+    .name-inhalt.aktiv {
+        display: block;
+    }
+</style>
+```
+
 </head>
 
 <body>
 
-    <h1>Ruth Töpfer-Ecke!</h1>
+```
+<h1>Ruth Töpfer-Ecke!</h1>
 
-    <p>
-       Diese Seite ist mein Töpfer-Tagebuch, welches ich mit dir teilen möchte. An manchen Stellen sind daher möglicherweise auch Notizen für mich. Du tust mir einen großen Gefallen, wenn du hier deinen Namen eingibst und die Bilder mit Sternen bewertest. Keine Angst, ich bin nicht traurig über wenige Sterne! Das ist ja total Geschmackssache. Und es hilft mir, zu sehen, was besonders beliebt ist, oder eben nur mein Geschmack. Außerdem kann ich so lernen, was dir gefällt. Sicher würde ich dir nämlich auch irgendwann mal ein Stück weitergeben, und da würde ich sehr gerne deinen Geschmack treffen, damit du dich besonders darüber freuen kannst. Deshalb helfen mir auch niedrige Bewertungen total! Aber falls du nur schauen willst, ist das natürlich auch okay. Viel Spaß <333 
-    </p>
+<p>
+    Diese Seite ist mein Töpfer-Tagebuch, welches ich mit dir teilen möchte. 
+    An manchen Stellen sind daher möglicherweise auch Notizen für mich. 
+    Du tust mir einen großen Gefallen, wenn du hier deinen Namen eingibst 
+    und die Bilder mit Sternen bewertest. Keine Angst, ich bin nicht traurig 
+    über wenige Sterne! Das ist ja total Geschmackssache. Und es hilft mir, 
+    zu sehen, was besonders beliebt ist, oder eben nur mein Geschmack. 
+    Außerdem kann ich so lernen, was dir gefällt. Sicher würde ich dir 
+    nämlich auch irgendwann mal ein Stück weitergeben, und da würde ich 
+    sehr gerne deinen Geschmack treffen, damit du dich besonders darüber 
+    freuen kannst. Deshalb helfen mir auch niedrige Bewertungen total! 
+    Aber falls du nur schauen willst, ist das natürlich auch okay. 
+    Viel Spaß <333
+</p>
 
-    <input type="text" placeholder="Dein Name">
+<!-- Name eingeben -->
 
-    <div class="bilder">
+<input 
+    type="text" 
+    id="name" 
+    placeholder="Dein Name"
+>
 
-        <h2>Bilder bewerten</h2>
 
-        <div class="bild">
-            <img src="bild1.jpg" alt="1.">
+<div class="bilder">
 
-            <p>Wie gefällt dir dieses Stück?</p>
+    <h2>Bilder bewerten</h2>
 
-            <div class="sterne">
-                ☆ ☆ ☆ ☆ ☆
-            </div>
-        </div>
 
-        <div class="bild">
-            <img src="bild2.jpg" alt="2.">
+    <!-- Bild 1 -->
 
-            <p>Wie gefällt dir dieses Stück?</p>
+    <div class="bild">
 
-            <div class="sterne">
-                ☆ ☆ ☆ ☆ ☆
-            </div>
+        <img src="bild1.jpg" alt="1.">
+
+        <p>Wie gefällt dir dieses Stück?</p>
+
+        <div class="sterne" data-bild="Stück 1">
+
+            <span class="stern" data-wert="1">☆</span>
+            <span class="stern" data-wert="2">☆</span>
+            <span class="stern" data-wert="3">☆</span>
+            <span class="stern" data-wert="4">☆</span>
+            <span class="stern" data-wert="5">☆</span>
+
         </div>
 
     </div>
+
+
+    <!-- Bild 2 -->
+
+    <div class="bild">
+
+        <img src="bild2.jpg" alt="2.">
+
+        <p>Wie gefällt dir dieses Stück?</p>
+
+        <div class="sterne" data-bild="Stück 2">
+
+            <span class="stern" data-wert="1">☆</span>
+            <span class="stern" data-wert="2">☆</span>
+            <span class="stern" data-wert="3">☆</span>
+            <span class="stern" data-wert="4">☆</span>
+            <span class="stern" data-wert="5">☆</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Bewertungen -->
+
+<div class="bewertungen">
+
+    <h2>Bewertungen</h2>
+
+    <div id="bewertungsliste">
+        Noch keine Bewertungen vorhanden.
+    </div>
+
+</div>
+
+
+<script>
+
+    // Gespeicherte Bewertungen aus dem Browser laden
+
+    let bewertungen = JSON.parse(
+        localStorage.getItem("bewertungen")
+    ) || [];
+
+
+    // Sterne anklickbar machen
+
+    document.querySelectorAll(".sterne").forEach(function(sternGruppe) {
+
+        let sterne = sternGruppe.querySelectorAll(".stern");
+
+
+        sterne.forEach(function(stern) {
+
+            stern.addEventListener("click", function() {
+
+                // Namen aus dem Eingabefeld holen
+
+                let name = document
+                    .getElementById("name")
+                    .value
+                    .trim();
+
+
+                // Prüfen, ob ein Name eingegeben wurde
+
+                if (name === "") {
+
+                    alert(
+                        "Bitte gib zuerst deinen Namen ein."
+                    );
+
+                    return;
+
+                }
+
+
+                // Anzahl der Sterne herausfinden
+
+                let wert = Number(
+                    stern.getAttribute("data-wert")
+                );
+
+
+                // Herausfinden, welches Stück bewertet wurde
+
+                let bild = sternGruppe.getAttribute(
+                    "data-bild"
+                );
+
+
+                // Sterne anzeigen
+
+                sterne.forEach(function(s, index) {
+
+                    if (index < wert) {
+
+                        s.textContent = "★";
+
+                        s.classList.add("aktiv");
+
+                    } else {
+
+                        s.textContent = "☆";
+
+                        s.classList.remove("aktiv");
+
+                    }
+
+                });
+
+
+                // Bewertung speichern
+
+                bewertungen.push({
+
+                    name: name,
+
+                    bild: bild,
+
+                    sterne: wert
+
+                });
+
+
+                // Im Browser speichern
+
+                localStorage.setItem(
+                    "bewertungen",
+                    JSON.stringify(bewertungen)
+                );
+
+
+                // Bewertungsliste aktualisieren
+
+                zeigeBewertungen();
+
+            });
+
+        });
+
+    });
+
+
+    // Bewertungen anzeigen
+
+    function zeigeBewertungen() {
+
+        let liste = document.getElementById(
+            "bewertungsliste"
+        );
+
+
+        // Alte Anzeige löschen
+
+        liste.innerHTML = "";
+
+
+        // Prüfen, ob Bewertungen existieren
+
+        if (bewertungen.length === 0) {
+
+            liste.innerHTML =
+                "Noch keine Bewertungen vorhanden.";
+
+            return;
+
+        }
+
+
+        // Namen sammeln
+
+        let namen = {};
+
+
+        bewertungen.forEach(function(bewertung) {
+
+            if (!namen[bewertung.name]) {
+
+                namen[bewertung.name] = [];
+
+            }
+
+            namen[bewertung.name].push(
+                bewertung
+            );
+
+        });
+
+
+        // Für jeden Namen einen Bereich erstellen
+
+        Object.keys(namen).forEach(function(name) {
+
+            let nameBereich =
+                document.createElement("div");
+
+            nameBereich.className = "name";
+
+
+            // Name als Überschrift
+
+            let nameTitel =
+                document.createElement("div");
+
+            nameTitel.className =
+                "name-titel";
+
+            nameTitel.textContent =
+                name + " ▼";
+
+
+            // Bereich für die Bewertungen
+
+            let nameInhalt =
+                document.createElement("div");
+
+            nameInhalt.className =
+                "name-inhalt";
+
+
+            // Bewertungen dieses Namens anzeigen
+
+            namen[name].forEach(function(bewertung) {
+
+                let eintrag =
+                    document.createElement("p");
+
+
+                // Sterne erzeugen
+
+                let sterne =
+                    "★".repeat(
+                        bewertung.sterne
+                    ) +
+                    "☆".repeat(
+                        5 - bewertung.sterne
+                    );
+
+
+                eintrag.textContent =
+                    bewertung.bild +
+                    ": " +
+                    sterne;
+
+
+                nameInhalt.appendChild(
+                    eintrag
+                );
+
+            });
+
+
+            // Auf- und Zuklappen
+
+            nameTitel.addEventListener(
+                "click",
+                function() {
+
+                    nameInhalt.classList.toggle(
+                        "aktiv"
+                    );
+
+                }
+            );
+
+
+            // Elemente zusammenfügen
+
+            nameBereich.appendChild(
+                nameTitel
+            );
+
+            nameBereich.appendChild(
+                nameInhalt
+            );
+
+            liste.appendChild(
+                nameBereich
+            );
+
+        });
+
+    }
+
+
+    // Bewertungen beim Laden der Seite anzeigen
+
+    zeigeBewertungen();
+
+</script>
+```
 
 </body>
 </html>
