@@ -2,24 +2,86 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Meine Webseite</title>
+    <title>Ruth Töpfer-Ecke</title>
 
     <style>
         body {
             background-color: lightgreen;
             text-align: center;
+            font-family: Arial, sans-serif;
         }
 
         h1 {
-            color: white;
+            color: black;
             font-size: 50px;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        .bilder {
+            margin-top: 50px;
+        }
+
+        .bild {
+            margin: 30px;
+        }
+
+        .bild img {
+            width: 300px;
+            border-radius: 10px;
+        }
+
+        .sterne {
+            font-size: 35px;
+            color: blue;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>Willkommen in Ruths Töpfer Ecke!</h1>
+    <h1>Ruth Töpfer-Ecke!</h1>
+
+    <p>
+       Diese Seite ist mein Töpfer-Tagebuch, welches ich mit dir teilen möchte. An manchen Stellen sind daher möglicherweise auch Notizen für mich. Du tust mir einen großen Gefallen, wenn du hier deinen Namen eingibst und die Bilder mit Sternen bewertest. Keine Angst, ich bin nicht traurig über wenige Sterne! Das ist ja total Geschmackssache. Und es hilft mir, zu sehen, was besonders beliebt ist, oder eben nur mein Geschmack. Außerdem kann ich so lernen, was dir gefällt. Sicher würde ich dir nämlich auch irgendwann mal ein Stück weitergeben, und da würde ich sehr gerne deinen Geschmack treffen, damit du dich besonders darüber freuen kannst. Deshalb helfen mir auch niedrige Bewertungen total! Aber falls du nur schauen willst, ist das natürlich auch okay. Viel Spaß <333 
+    </p>
+
+    <input type="text" placeholder="Dein Name">
+
+    <div class="bilder">
+
+        <h2>Bilder bewerten</h2>
+
+        <div class="bild">
+            <img src="bild1.jpg" alt="1.">
+
+            <p>Wie gefällt dir dieses Stück?</p>
+
+            <div class="sterne">
+                ☆ ☆ ☆ ☆ ☆
+            </div>
+        </div>
+
+        <div class="bild">
+            <img src="bild2.jpg" alt="2.">
+
+            <p>Wie gefällt dir dieses Stück?</p>
+
+            <div class="sterne">
+                ☆ ☆ ☆ ☆ ☆
+            </div>
+        </div>
+
+    </div>
 
 </body>
 </html>
