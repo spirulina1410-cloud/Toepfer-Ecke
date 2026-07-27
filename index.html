@@ -267,25 +267,52 @@
                 });
 
 
-                // Bewertung speichern
+               // Prüfen, ob diese Person dieses Stück bereits bewertet hat
 
-                bewertungen.push({
+let vorhandeneBewertung = bewertungen.findIndex(function(bewertung) {
 
-                    name: name,
+    return bewertung.name === name &&
+           bewertung.bild === bild;
 
-                    bild: bild,
-
-                    sterne: wert
-
-                });
+});
 
 
-                // Im Browser speichern
+// Wenn bereits eine Bewertung existiert:
+// Alte Bewertung durch die neue ersetzen
 
-                localStorage.setItem(
-                    "bewertungen",
-                    JSON.stringify(bewertungen)
-                );
+if (vorhandeneBewertung !== -1) {
+
+    bewertungen[vorhandeneBewertung].sterne = wert;
+
+} else {
+
+    // Wenn noch keine Bewertung existiert:
+    // Neue Bewertung hinzufügen
+
+    bewertungen.push({
+
+        name: name,
+
+        bild: bild,
+
+        sterne: wert
+
+    });
+
+}
+
+
+// Bewertung im Browser speichern
+
+localStorage.setItem(
+    "bewertungen",
+    JSON.stringify(bewertungen)
+);
+
+
+// Bewertungsliste aktualisieren
+
+zeigeBewertungen();
 
 
                 // Bewertungsliste aktualisieren
