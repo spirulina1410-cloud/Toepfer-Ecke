@@ -13,6 +13,8 @@
         background-color: lightgreen;
         text-align: center;
         font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
     }
 
     h1 {
@@ -22,12 +24,15 @@
 
     p {
         font-size: 20px;
+        line-height: 1.5;
     }
 
     input {
         padding: 10px;
         font-size: 16px;
         margin: 10px;
+        border: 1px solid #999;
+        border-radius: 5px;
     }
 
     .bilder {
@@ -35,11 +40,13 @@
     }
 
     .bild {
-        margin: 30px;
+        margin: 30px auto;
+        max-width: 500px;
     }
 
     .bild img {
         width: 300px;
+        max-width: 100%;
         border-radius: 10px;
     }
 
@@ -47,7 +54,6 @@
 
     .sterne {
         font-size: 35px;
-        color: blue;
         cursor: pointer;
     }
 
@@ -86,6 +92,10 @@
         border-radius: 5px;
     }
 
+    .name-titel:hover {
+        background-color: #dddddd;
+    }
+
     .name-inhalt {
         display: none;
         padding: 15px;
@@ -94,6 +104,14 @@
 
     .name-inhalt.aktiv {
         display: block;
+    }
+
+    /* Statusmeldungen */
+
+    #status {
+        margin-top: 20px;
+        font-size: 16px;
+        min-height: 25px;
     }
 </style>
 ```
@@ -120,11 +138,12 @@
     Viel Spaß <333
 </p>
 
+
 <!-- Name eingeben -->
 
-<input 
-    type="text" 
-    id="name" 
+<input
+    type="text"
+    id="name"
     placeholder="Dein Name"
 >
 
@@ -134,48 +153,107 @@
     <h2>Bilder bewerten</h2>
 
 
-    <!-- Bild 1 -->
+    <!-- Stück 1 -->
 
     <div class="bild">
 
-        <img src="bild1.jpg" alt="1.">
+        <img
+            src="bild1.jpg"
+            alt="1."
+        >
 
-        <p>Wie gefällt dir dieses Stück?</p>
+        <p>
+            Wie gefällt dir dieses Stück?
+        </p>
 
-        <div class="sterne" data-bild="Stück 1">
+        <div
+            class="sterne"
+            data-bild="Stück 1"
+        >
 
-            <span class="stern" data-wert="1">☆</span>
-            <span class="stern" data-wert="2">☆</span>
-            <span class="stern" data-wert="3">☆</span>
-            <span class="stern" data-wert="4">☆</span>
-            <span class="stern" data-wert="5">☆</span>
+            <span
+                class="stern"
+                data-wert="1"
+            >☆</span>
+
+            <span
+                class="stern"
+                data-wert="2"
+            >☆</span>
+
+            <span
+                class="stern"
+                data-wert="3"
+            >☆</span>
+
+            <span
+                class="stern"
+                data-wert="4"
+            >☆</span>
+
+            <span
+                class="stern"
+                data-wert="5"
+            >☆</span>
 
         </div>
 
     </div>
 
 
-    <!-- Bild 2 -->
+    <!-- Stück 2 -->
 
     <div class="bild">
 
-        <img src="bild2.jpg" alt="2.">
+        <img
+            src="bild2.jpg"
+            alt="2."
+        >
 
-        <p>Wie gefällt dir dieses Stück?</p>
+        <p>
+            Wie gefällt dir dieses Stück?
+        </p>
 
-        <div class="sterne" data-bild="Stück 2">
+        <div
+            class="sterne"
+            data-bild="Stück 2"
+        >
 
-            <span class="stern" data-wert="1">☆</span>
-            <span class="stern" data-wert="2">☆</span>
-            <span class="stern" data-wert="3">☆</span>
-            <span class="stern" data-wert="4">☆</span>
-            <span class="stern" data-wert="5">☆</span>
+            <span
+                class="stern"
+                data-wert="1"
+            >☆</span>
+
+            <span
+                class="stern"
+                data-wert="2"
+            >☆</span>
+
+            <span
+                class="stern"
+                data-wert="3"
+            >☆</span>
+
+            <span
+                class="stern"
+                data-wert="4"
+            >☆</span>
+
+            <span
+                class="stern"
+                data-wert="5"
+            >☆</span>
 
         </div>
 
     </div>
 
 </div>
+
+
+<!-- Statusmeldung -->
+
+<div id="status"></div>
 
 
 <!-- Bewertungen -->
@@ -185,166 +263,315 @@
     <h2>Bewertungen</h2>
 
     <div id="bewertungsliste">
-        Noch keine Bewertungen vorhanden.
+
+        Bewertungen werden geladen...
+
     </div>
 
 </div>
 
 
+<!-- Supabase Bibliothek -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <script>
 
-    // Gespeicherte Bewertungen aus dem Browser laden
+    // ==========================================
+    // SUPABASE VERBINDUNG
+    // ==========================================
 
-    let bewertungen = JSON.parse(
-        localStorage.getItem("bewertungen")
-    ) || [];
+    const SUPABASE_URL =
+        "https://uftcbeivpjdyodufegmp.supabase.co";
 
-
-    // Sterne anklickbar machen
-
-    document.querySelectorAll(".sterne").forEach(function(sternGruppe) {
-
-        let sterne = sternGruppe.querySelectorAll(".stern");
+    const SUPABASE_KEY =
+        "sb_publishable_KhZbm7D4A4bQJxNU_4CTTg_6AwDly8-";
 
 
-        sterne.forEach(function(stern) {
-
-            stern.addEventListener("click", function() {
-
-                // Namen aus dem Eingabefeld holen
-
-                let name = document
-                    .getElementById("name")
-                    .value
-                    .trim();
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
 
 
-                // Prüfen, ob ein Name eingegeben wurde
+    // ==========================================
+    // ELEMENTE AUS DER HTML-SEITE
+    // ==========================================
 
-                if (name === "") {
+    const nameInput =
+        document.getElementById("name");
 
-                    alert(
-                        "Bitte gib zuerst deinen Namen ein."
-                    );
+    const bewertungsliste =
+        document.getElementById("bewertungsliste");
 
-                    return;
+    const status =
+        document.getElementById("status");
 
+
+    // ==========================================
+    // BEWERTUNGEN AUS SUPABASE LADEN
+    // ==========================================
+
+    async function ladeBewertungen() {
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("bewertungen")
+            .select("*")
+            .order("name", {
+                ascending: true
+            });
+
+
+        if (error) {
+
+            console.error(
+                "Fehler beim Laden:",
+                error
+            );
+
+            bewertungsliste.innerHTML =
+                "Die Bewertungen konnten leider nicht geladen werden.";
+
+            return;
+
+        }
+
+
+        zeigeBewertungen(data);
+
+    }
+
+
+    // ==========================================
+    // BEWERTUNG SPEICHERN
+    // ==========================================
+
+    async function speichereBewertung(
+        name,
+        bild,
+        sterne
+    ) {
+
+        status.textContent =
+            "Bewertung wird gespeichert...";
+
+
+        /*
+         * upsert bedeutet:
+         *
+         * Gibt es bereits eine Bewertung
+         * für diesen Namen + dieses Stück,
+         * wird sie aktualisiert.
+         *
+         * Gibt es noch keine Bewertung,
+         * wird eine neue erstellt.
+         */
+
+        const {
+            error
+        } = await supabaseClient
+            .from("bewertungen")
+            .upsert(
+                {
+                    name: name,
+                    bild: bild,
+                    sterne: sterne
+                },
+                {
+                    onConflict: "name,bild"
                 }
+            );
 
 
-                // Anzahl der Sterne herausfinden
+        if (error) {
 
-                let wert = Number(
-                    stern.getAttribute("data-wert")
-                );
+            console.error(
+                "Fehler beim Speichern:",
+                error
+            );
+
+            status.textContent =
+                "Fehler: Die Bewertung konnte nicht gespeichert werden.";
+
+            return;
+
+        }
 
 
-                // Herausfinden, welches Stück bewertet wurde
-
-                let bild = sternGruppe.getAttribute(
-                    "data-bild"
-                );
+        status.textContent =
+            "Deine Bewertung wurde gespeichert!";
 
 
-                // Sterne anzeigen
+        // Bewertungen neu laden
 
-                sterne.forEach(function(s, index) {
+        await ladeBewertungen();
 
-                    if (index < wert) {
 
-                        s.textContent = "★";
+        // Statusmeldung nach kurzer Zeit ausblenden
 
-                        s.classList.add("aktiv");
+        setTimeout(
+            function() {
 
-                    } else {
+                status.textContent = "";
 
-                        s.textContent = "☆";
+            },
+            3000
+        );
 
-                        s.classList.remove("aktiv");
+    }
+
+
+    // ==========================================
+    // STERNE AKTIVIEREN
+    // ==========================================
+
+    document
+        .querySelectorAll(".sterne")
+        .forEach(
+            function(sternGruppe) {
+
+
+            const sterne =
+                sternGruppe
+                    .querySelectorAll(".stern");
+
+
+            sterne.forEach(
+                function(stern) {
+
+
+                stern.addEventListener(
+                    "click",
+                    async function() {
+
+
+                    // Namen auslesen
+
+                    const name =
+                        nameInput
+                            .value
+                            .trim();
+
+
+                    // Prüfen, ob Name eingegeben wurde
+
+                    if (name === "") {
+
+                        alert(
+                            "Bitte gib zuerst deinen Namen ein."
+                        );
+
+                        nameInput.focus();
+
+                        return;
 
                     }
 
-                });
+
+                    // Anzahl der Sterne
+
+                    const wert =
+                        Number(
+                            stern
+                                .getAttribute(
+                                    "data-wert"
+                                )
+                        );
 
 
-               // Prüfen, ob diese Person dieses Stück bereits bewertet hat
+                    // Welches Stück?
 
-let vorhandeneBewertung = bewertungen.findIndex(function(bewertung) {
-
-    return bewertung.name === name &&
-           bewertung.bild === bild;
-
-});
-
-
-// Wenn bereits eine Bewertung existiert:
-// Alte Bewertung durch die neue ersetzen
-
-if (vorhandeneBewertung !== -1) {
-
-    bewertungen[vorhandeneBewertung].sterne = wert;
-
-} else {
-
-    // Wenn noch keine Bewertung existiert:
-    // Neue Bewertung hinzufügen
-
-    bewertungen.push({
-
-        name: name,
-
-        bild: bild,
-
-        sterne: wert
-
-    });
-
-}
+                    const bild =
+                        sternGruppe
+                            .getAttribute(
+                                "data-bild"
+                            );
 
 
-// Bewertung im Browser speichern
+                    // Sterne optisch anzeigen
 
-localStorage.setItem(
-    "bewertungen",
-    JSON.stringify(bewertungen)
-);
-
-
-// Bewertungsliste aktualisieren
-
-zeigeBewertungen();
+                    sterne.forEach(
+                        function(
+                            einzelnerStern,
+                            index
+                        ) {
 
 
-                // Bewertungsliste aktualisieren
+                        if (
+                            index < wert
+                        ) {
 
-                zeigeBewertungen();
+                            einzelnerStern
+                                .textContent =
+                                "★";
 
-            });
+                            einzelnerStern
+                                .classList
+                                .add(
+                                    "aktiv"
+                                );
+
+                        } else {
+
+                            einzelnerStern
+                                .textContent =
+                                "☆";
+
+                            einzelnerStern
+                                .classList
+                                .remove(
+                                    "aktiv"
+                                );
+
+                        }
+
+                    });
+
+
+                    // Bewertung speichern
+
+                    await speichereBewertung(
+                        name,
+                        bild,
+                        wert
+                    );
+
+
+                }
+            );
 
         });
 
     });
 
 
-    // Bewertungen anzeigen
+    // ==========================================
+    // BEWERTUNGEN ANZEIGEN
+    // ==========================================
 
-    function zeigeBewertungen() {
-
-        let liste = document.getElementById(
-            "bewertungsliste"
-        );
+    function zeigeBewertungen(
+        bewertungen
+    ) {
 
 
         // Alte Anzeige löschen
 
-        liste.innerHTML = "";
+        bewertungsliste.innerHTML =
+            "";
 
 
-        // Prüfen, ob Bewertungen existieren
+        // Keine Bewertungen vorhanden
 
-        if (bewertungen.length === 0) {
+        if (
+            bewertungen.length === 0
+        ) {
 
-            liste.innerHTML =
+            bewertungsliste.innerHTML =
                 "Noch keine Bewertungen vorhanden.";
 
             return;
@@ -354,18 +581,29 @@ zeigeBewertungen();
 
         // Namen sammeln
 
-        let namen = {};
+        const namen = {};
 
 
-        bewertungen.forEach(function(bewertung) {
+        bewertungen.forEach(
+            function(bewertung) {
 
-            if (!namen[bewertung.name]) {
 
-                namen[bewertung.name] = [];
+            if (
+                !namen[
+                    bewertung.name
+                ]
+            ) {
+
+                namen[
+                    bewertung.name
+                ] = [];
 
             }
 
-            namen[bewertung.name].push(
+
+            namen[
+                bewertung.name
+            ].push(
                 bewertung
             );
 
@@ -374,18 +612,28 @@ zeigeBewertungen();
 
         // Für jeden Namen einen Bereich erstellen
 
-        Object.keys(namen).forEach(function(name) {
+        Object.keys(namen)
+            .forEach(
+                function(name) {
 
-            let nameBereich =
-                document.createElement("div");
 
-            nameBereich.className = "name";
+            // Äußerer Bereich
+
+            const nameBereich =
+                document.createElement(
+                    "div"
+                );
+
+            nameBereich.className =
+                "name";
 
 
             // Name als Überschrift
 
-            let nameTitel =
-                document.createElement("div");
+            const nameTitel =
+                document.createElement(
+                    "div"
+                );
 
             nameTitel.className =
                 "name-titel";
@@ -394,31 +642,38 @@ zeigeBewertungen();
                 name + " ▼";
 
 
-            // Bereich für die Bewertungen
+            // Inhalt
 
-            let nameInhalt =
-                document.createElement("div");
+            const nameInhalt =
+                document.createElement(
+                    "div"
+                );
 
             nameInhalt.className =
                 "name-inhalt";
 
 
-            // Bewertungen dieses Namens anzeigen
+            // Bewertungen dieses Namens
 
-            namen[name].forEach(function(bewertung) {
-
-                let eintrag =
-                    document.createElement("p");
+            namen[name].forEach(
+                function(bewertung) {
 
 
-                // Sterne erzeugen
+                const eintrag =
+                    document.createElement(
+                        "p"
+                    );
 
-                let sterne =
+
+                // Sterne darstellen
+
+                const sterne =
                     "★".repeat(
                         bewertung.sterne
                     ) +
                     "☆".repeat(
-                        5 - bewertung.sterne
+                        5 -
+                        bewertung.sterne
                     );
 
 
@@ -441,9 +696,11 @@ zeigeBewertungen();
                 "click",
                 function() {
 
-                    nameInhalt.classList.toggle(
-                        "aktiv"
-                    );
+                    nameInhalt
+                        .classList
+                        .toggle(
+                            "aktiv"
+                        );
 
                 }
             );
@@ -459,18 +716,22 @@ zeigeBewertungen();
                 nameInhalt
             );
 
-            liste.appendChild(
+            bewertungsliste.appendChild(
                 nameBereich
             );
+
 
         });
 
     }
 
 
-    // Bewertungen beim Laden der Seite anzeigen
+    // ==========================================
+    // BEIM START BEWERTUNGEN LADEN
+    // ==========================================
 
-    zeigeBewertungen();
+    ladeBewertungen();
+
 
 </script>
 ```
