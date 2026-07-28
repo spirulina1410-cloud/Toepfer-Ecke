@@ -348,51 +348,26 @@ erstelleBrand(3, 29);
 
     async function ladeBewertungen() {
 
-        const {
-            data,
-            error
-        } = await supabaseClient
-            .from("bewertungen")
-            .select("*")
-            .order(
-                "name",
-                {
-                    ascending: true
-                }
-            );
+    const { data, error } = await supabaseClient
+        .from("bewertungen")
+        .select("*")
+        .order("name");
 
+    if (error) {
 
-        if (error) {
+        console.error(error);
 
-            console.error(
-                "Fehler beim Laden:",
-                error
-            );
+        document.querySelectorAll(".bewertungen-inhalt").forEach(bereich => {
+            bereich.textContent =
+                "Die Bewertungen konnten leider nicht geladen werden.";
+        });
 
-
-            document
-                .querySelectorAll(
-                    ".bewertungen-inhalt"
-                )
-                .forEach(
-                    function(bereich) {
-
-                        bereich.innerHTML =
-                            "Die Bewertungen konnten leider nicht geladen werden.";
-
-                    }
-                );
-
-
-            return;
-
-        }
-
-
-        zeigeBewertungen(data);
-
+        return;
     }
 
+    zeigeBewertungen(data);
+}
+ 
 
     // ==========================================
     // BEWERTUNG SPEICHERN
@@ -432,13 +407,10 @@ erstelleBrand(3, 29);
                 error
             );
 
-
             status.textContent =
                 "Fehler: Die Bewertung konnte nicht gespeichert werden.";
 
-
             return;
-
         }
 
 
@@ -458,9 +430,7 @@ erstelleBrand(3, 29);
             },
             3000
         );
-
     }
-
 
     // ==========================================
     // STERNE AKTIVIEREN
