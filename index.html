@@ -536,7 +536,7 @@ function zeigeBewertungen(bewertungen) {
             bereich.textContent = "Noch keine Bewertungen.";
             return;
         }
-
+/*
         const durchschnitt =
             liste.reduce((summe, b) => summe + Number(b.sterne), 0) / liste.length;
 
@@ -548,7 +548,7 @@ function zeigeBewertungen(bewertungen) {
             `<div class="durchschnitt">
                 Durchschnitt: ${sterne} (${durchschnitt.toFixed(1).replace(".", ",")} / 5)
             </div>`;
-
+*/
         for (const b of liste) {
 
             const eintrag = document.createElement("div");
