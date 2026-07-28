@@ -320,17 +320,19 @@ function erstelleBrand(brand, anzahl) {
             <div class="bild">
 
                 <h3>B${brand} Stück ${i}</h3>
-${notizFuerBild(brand, i) ? `
 
-<div class="notiz">
-    ${notizFuerBild(brand, i)}
-</div>
-
-` : ""}
                 <img
                     src="bild${i}_${brand}.jpeg"
                     alt="${i}."
                 >
+                
+                ${notizFuerBild(brand, i) ? `
+                
+                <div class="notiz">
+                    ${notizFuerBild(brand, i)}
+                </div>
+                
+                ` : ""}
 
                 <div
                     class="sterne"
