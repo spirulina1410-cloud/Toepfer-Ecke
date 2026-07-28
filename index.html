@@ -497,54 +497,48 @@ document.addEventListener("click", async (e) => {
     // BEWERTUNGEN ANZEIGEN
     // ==========================================
 
-    function zeigeBewertungen(
-        bewertungen
-    ) {
+function zeigeBewertungen(bewertungen) {
 
+    document.querySelectorAll(".bewertungen-inhalt").forEach(bereich => {
 
-        document
-            .querySelectorAll(
-                ".bewertungen-inhalt"
-            )
-            .forEach(
-                function(bereich) {
+        const bild = bereich.dataset.bild;
+        const liste = bewertungen.filter(b => b.bild === bild);
 
+        if (!liste.length) {
+            bereich.textContent = "Noch keine Bewertungen.";
+            return;
+        }
 
-                const bild =
-                    bereich
-                        .getAttribute(
-                            "data-bild"
-                        );
+        const durchschnitt =
+            liste.reduce((summe, b) => summe + Number(b.sterne), 0) / liste.length;
 
+        const sterne =
+            "★".repeat(Math.round(durchschnitt)) +
+            "☆".repeat(5 - Math.round(durchschnitt));
 
-                const bildBewertungen =
-                    bewertungen.filter(
-                        function(bewertung) {
+        bereich.innerHTML =
+            `<div class="durchschnitt">
+                Durchschnitt: ${sterne} (${durchschnitt.toFixed(1).replace(".", ",")} / 5)
+            </div>`;
 
-                            return (
-                                bewertung.bild
-                                ===
-                                bild
-                            );
+        for (const b of liste) {
 
-                        }
-                    );
+            const eintrag = document.createElement("div");
+            eintrag.className = "einzelne-bewertung";
 
+            eintrag.textContent =
+                `${b.name}: ${
+                    "★".repeat(b.sterne)
+                }${
+                    "☆".repeat(5 - b.sterne)
+                }`;
 
-                if (
-                    bildBewertungen.length
-                    ===
-                    0
-                ) {
+            bereich.appendChild(eintrag);
+        }
 
-                    bereich.innerHTML =
-                        "Noch keine Bewertungen.";
+    });
 
-
-                    return;
-
-                }
-
+}
 
                 // ==========================================
                 // DURCHSCHNITT BERECHNEN
