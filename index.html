@@ -90,9 +90,13 @@ img {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     user-select: none;
-    img:active {
     opacity: 1;
 }
+
+img:active,
+img:focus {
+    opacity: 1;
+    filter: none;
 }
     /* ==========================================
        STERNE
