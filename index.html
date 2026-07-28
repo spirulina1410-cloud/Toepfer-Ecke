@@ -373,64 +373,40 @@ erstelleBrand(3, 29);
     // BEWERTUNG SPEICHERN
     // ==========================================
 
-    async function speichereBewertung(
-        name,
-        bild,
-        sterne
-    ) {
+   async function speichereBewertung(name, bild, sterne) {
 
-        status.textContent =
-            "Bewertung wird gespeichert...";
+    status.textContent = "Bewertung wird gespeichert...";
 
-
-        const {
-            error
-        } = await supabaseClient
-            .from("bewertungen")
-            .upsert(
-                {
-                    name: name,
-                    bild: bild,
-                    sterne: sterne
-                },
-                {
-                    onConflict:
-                        "name,bild"
-                }
-            );
-
-
-        if (error) {
-
-            console.error(
-                "Fehler beim Speichern:",
-                error
-            );
-
-            status.textContent =
-                "Fehler: Die Bewertung konnte nicht gespeichert werden.";
-
-            return;
-        }
-
-
-        status.textContent =
-            "Deine Bewertung wurde gespeichert!";
-
-
-        await ladeBewertungen();
-
-
-        setTimeout(
-            function() {
-
-                status.textContent =
-                    "";
-
+    const { error } = await supabaseClient
+        .from("bewertungen")
+        .upsert(
+            {
+                name,
+                bild,
+                sterne
             },
-            3000
+            {
+                onConflict: "name,bild"
+            }
         );
+
+    if (error) {
+        console.error(error);
+        status.textContent =
+            "Fehler: Bewertung konnte nicht gespeichert werden.";
+        return;
     }
+
+    status.textContent =
+        "Deine Bewertung wurde gespeichert!";
+
+    await ladeBewertungen();
+
+    setTimeout(() => {
+        status.textContent = "";
+    }, 3000);
+
+}
 
     // ==========================================
     // STERNE AKTIVIEREN
