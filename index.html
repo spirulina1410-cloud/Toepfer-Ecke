@@ -237,6 +237,10 @@ placeholder="Dein Name"
 <h2>Brand 3</h2>
 <div id="brand3"></div>
 
+<h2>Galerie</h2>
+
+<div id="galerie" class="bilder"></div>
+
 
 <!-- ==========================================
      STATUSMELDUNG
@@ -251,6 +255,27 @@ placeholder="Dein Name"
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+function erstelleGalerie(anzahl) {
+
+    const galerie = document.getElementById("galerie");
+
+    for (let i = 1; i <= anzahl; i++) {
+
+        galerie.insertAdjacentHTML("beforeend", `
+            <div class="bild">
+                <img
+                    src="bild${i}g.jpeg"
+                    alt="Galerie ${i}"
+                >
+            </div>
+        `);
+
+    }
+
+}
+
+erstelleGalerie(5);
+    
 function erstelleBrand(brand, anzahl) {
 
     const container = document.getElementById(`brand${brand}`);
