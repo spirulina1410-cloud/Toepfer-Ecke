@@ -372,7 +372,7 @@ function erstelleBrand(brand, anzahl) {
                         class="bewertungen-inhalt"
                         data-bild="B${brand} Stück ${i}"
                     >
-                        Noch keine Bewertungen.
+                      
                     </div>
 
                 </div>
@@ -531,11 +531,10 @@ function zeigeBewertungen(bewertungen) {
 
         const bild = bereich.dataset.bild;
         const liste = bewertungen.filter(b => b.bild === bild);
-
-        if (!liste.length) {
-            bereich.textContent = "Noch keine Bewertungen.";
-            return;
-        }
+if (!liste.length) {
+    bereich.textContent = "";
+    return;
+}
 /*
         const durchschnitt =
             liste.reduce((summe, b) => summe + Number(b.sterne), 0) / liste.length;
