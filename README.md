@@ -1,4 +1,4 @@
-<p> Neuen brand anlegen: das oben anhängen mit neuer zahl
+''' Neuen brand anlegen: das oben anhängen mit neuer zahl
 
 <h2 class="ausklappen">
     Brand 3 ▼
@@ -23,4 +23,4 @@ function notizFuerBild(brand, nummer) {
 
 Galerie
 erstelleGalerie(5);
-</p>
+'''
