@@ -141,7 +141,15 @@ input {
         display: block;
     }
 
-
+.notiz {
+    background-color: white;
+    padding: 10px;
+    margin: 15px auto;
+    max-width: 400px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: left;
+}
     /* ==========================================
        DURCHSCHNITT
     ========================================== */
@@ -275,7 +283,20 @@ function erstelleGalerie(anzahl) {
 }
 
 erstelleGalerie(5);
-    
+function notizFuerBild(brand, nummer) {
+
+    const notizen = {
+
+        "B3 Stück 2": "Mein erster Versuch mit Glasur X.",
+        "B3 Stück 7": "Sehr schöne Farbe geworden.",
+        "B3 Stück 15": "Noch einmal mit anderem Ton testen."
+
+    };
+
+
+    return notizen[`B${brand} Stück ${nummer}`] || "";
+
+}    
 function erstelleBrand(brand, anzahl) {
 
     const container = document.getElementById(`brand${brand}`);
@@ -286,7 +307,13 @@ function erstelleBrand(brand, anzahl) {
             <div class="bild">
 
                 <h3>B${brand} Stück ${i}</h3>
+${notizFuerBild(brand, i) ? `
 
+<div class="notiz">
+    ${notizFuerBild(brand, i)}
+</div>
+
+` : ""}
                 <img
                     src="bild${i}_${brand}.jpeg"
                     alt="${i}."
