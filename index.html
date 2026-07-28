@@ -466,111 +466,31 @@ erstelleBrand(3, 29);
     // STERNE AKTIVIEREN
     // ==========================================
 
-    document
-        .querySelectorAll(".sterne")
-        .forEach(
-            function(sternGruppe) {
+document.addEventListener("click", async (e) => {
 
+    if (!e.target.classList.contains("stern")) return;
 
-            const sterne =
-                sternGruppe
-                    .querySelectorAll(".stern");
+    const name = nameInput.value.trim();
 
+    if (!name) {
+        alert("Bitte gib zuerst deinen Namen ein.");
+        nameInput.focus();
+        return;
+    }
 
-            sterne.forEach(
-                function(stern) {
+    const stern = e.target;
+    const gruppe = stern.closest(".sterne");
+    const wert = Number(stern.dataset.wert);
+    const bild = gruppe.dataset.bild;
 
-
-                stern.addEventListener(
-                    "click",
-                    async function() {
-
-
-                    const name =
-                        nameInput
-                            .value
-                            .trim();
-
-
-                    if (name === "") {
-
-                        alert(
-                            "Bitte gib zuerst deinen Namen ein."
-                        );
-
-
-                        nameInput.focus();
-
-
-                        return;
-
-                    }
-
-
-                    const wert =
-                        Number(
-                            stern
-                                .getAttribute(
-                                    "data-wert"
-                                )
-                        );
-
-
-                    const bild =
-                        sternGruppe
-                            .getAttribute(
-                                "data-bild"
-                            );
-
-
-                    sterne.forEach(
-                        function(
-                            einzelnerStern,
-                            index
-                        ) {
-
-
-                        if (index < wert) {
-
-                            einzelnerStern
-                                .textContent =
-                                "★";
-
-
-                            einzelnerStern
-                                .classList
-                                .add("aktiv");
-
-
-                        } else {
-
-                            einzelnerStern
-                                .textContent =
-                                "☆";
-
-
-                            einzelnerStern
-                                .classList
-                                .remove("aktiv");
-
-                        }
-
-                    });
-
-
-                    await speichereBewertung(
-                        name,
-                        bild,
-                        wert
-                    );
-
-
-                }
-            );
-
-        });
-
+    gruppe.querySelectorAll(".stern").forEach((s, i) => {
+        s.textContent = i < wert ? "★" : "☆";
+        s.classList.toggle("aktiv", i < wert);
     });
+
+    await speichereBewertung(name, bild, wert);
+
+});
 
 
     // ==========================================
