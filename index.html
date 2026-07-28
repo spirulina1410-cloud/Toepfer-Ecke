@@ -101,7 +101,14 @@ input {
         color: hotpink;
     }
 
+.ausklappen {
+    cursor: pointer;
+    user-select: none;
+}
 
+.ausklapp-bereich {
+    display: none;
+}
     /* ==========================================
        BEWERTUNGEN UNTER JEDEM BILD
     ========================================== */
@@ -242,12 +249,18 @@ placeholder="Dein Name"
 ========================================== -->
 
 
-<h2>Brand 3</h2>
-<div id="brand3"></div>
+<h2 class="ausklappen">
+    Brand 3 ▼
+</h2>
 
-<h2>Galerie</h2>
+<div id="brand3" class="ausklapp-bereich"></div>
 
-<div id="galerie" class="bilder"></div>
+
+<h2 class="ausklappen">
+    Galerie ▼
+</h2>
+
+<div id="galerie" class="ausklapp-bereich"></div>
 
 
 <!-- ==========================================
@@ -287,10 +300,10 @@ function notizFuerBild(brand, nummer) {
 
     const notizen = {
 
-        "B3 Stück 2": "Mein erster Versuch mit Glasur X.",
-        "B3 Stück 7": "Sehr schöne Farbe geworden.",
-        "B3 Stück 15": "Noch einmal mit anderem Ton testen."
-
+        "B3 Stück 6": "Von Jette und mir gemacht",
+        "B3 Stück 7": "Von Jette gemacht",
+        "B3 Stück 10": "Niedrigbrand"
+        "B3 Stück 11": "Niedrigbrand"
     };
 
 
@@ -566,7 +579,32 @@ document.addEventListener("click", (e) => {
     // ==========================================
     // BEIM START BEWERTUNGEN LADEN
     // ==========================================
+document.querySelectorAll(".ausklappen")
+.forEach(titel => {
 
+    titel.addEventListener("click", () => {
+
+        const bereich = titel.nextElementSibling;
+
+        if (bereich.style.display === "block") {
+
+            bereich.style.display = "none";
+
+            titel.textContent =
+                titel.textContent.replace("▲", "▼");
+
+        } else {
+
+            bereich.style.display = "block";
+
+            titel.textContent =
+                titel.textContent.replace("▼", "▲");
+
+        }
+
+    });
+
+});
     ladeBewertungen();
 
 
