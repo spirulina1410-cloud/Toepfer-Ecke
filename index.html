@@ -542,6 +542,7 @@ if (!liste.length) {
     bereich.textContent = "";
     return;
 }
+        bereich.innerHTML = ""; // Alte Bewertungen löschen
 /*
         const durchschnitt =
             liste.reduce((summe, b) => summe + Number(b.sterne), 0) / liste.length;
