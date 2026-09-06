@@ -1,11 +1,15 @@
 ```
-Bilder umbenennen
+1. Bilder umbenennen in power shell
 cd
->> Get-ChildItem -File | Sort-Object Name | ForEach-Object {
->>     Rename-Item $_ -NewName ("bild{0}_1{1}" -f $i, $_.Extension)
->>     $i++
->> }
-Neuen brand anlegen: das oben anhängen mit neuer zahl
+$i = 1
+Get-ChildItem -File | Sort-Object Name | ForEach-Object {
+    Rename-Item $_ -NewName ("bild{0}_4{1}" -f $i, $_.Extension)
+    $i++
+}
+
+2. bilder importieren
+
+3. Neuen brand anlegen: das oben anhängen mit neuer zahl
 
 <h2 class="ausklappen">
     Brand 3 ▼
